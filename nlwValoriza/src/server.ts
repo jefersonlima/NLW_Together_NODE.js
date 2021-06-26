@@ -1,12 +1,19 @@
 import "reflect-metadata";
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors"
+import cors from "cors";
+
 
 import { router } from "./routes";
 
 import "./database";
 
 const app = express();
+// libera a acesso pelo front-end
+app.use(cors()); // fica abilitado para todas aplicações terem acesso
+// app.use(cors({
+//     origin: "" // limita acesso ao determinada aplicação
+// }));
 
 app.use(express.json());
 
